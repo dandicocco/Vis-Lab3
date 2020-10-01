@@ -94,9 +94,9 @@ d3.csv('buildings.csv', d3.autoType).then(bData => {
             .attr("height", h / buildingData.length - barPadding)
             .attr("fill", "#f29c38")
             .on("click", function(e, d){
+                //change the image
                 document.querySelector(".image").src = "img/"+d.image;
-
-                console.log(Pic);
+                //change building stats
                 Height = d3.select(".height");
                 Height.text(d.height_ft);
                 City = d3.select(".city");
