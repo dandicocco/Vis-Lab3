@@ -92,7 +92,23 @@ d3.csv('buildings.csv', d3.autoType).then(bData => {
                 return d.height_px;
             })
             .attr("height", h / buildingData.length - barPadding)
-            .attr("fill", "#f29c38");
+            .attr("fill", "#f29c38")
+            .on("click", function(e, d){
+                document.querySelector(".image").src = "img/"+d.image;
+
+                console.log(Pic);
+                Height = d3.select(".height");
+                Height.text(d.height_ft);
+                City = d3.select(".city");
+                City.text(d.city);
+                Country = d3.select(".country");
+                Country.text(d.country);
+                Floors = d3.select(".floors");
+                Floors.text(d.floors);
+                Completed = d3.select(".completed");
+                Completed.text(d.completed);
+
+            });
     
         //add building names
         svg.selectAll("text.labels")
